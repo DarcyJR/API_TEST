@@ -6,7 +6,7 @@ const routes = require('./routes');
 
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTMONGO || CONNECT_MONGO)
+mongoose.connect(process.env.CONNECTMONGO || process.env.CONNECT_MONGO)
     .then(() => {
         console.log('Base conectada');
         app.emit('conectado');
