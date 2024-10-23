@@ -1,14 +1,15 @@
-const HomeModel = require('../models/HomeModels');
+exports.homeGet = async (req, res) => {
+    res.send('Bem vindo');
+}
 
 exports.homeWebHook = async(req, res) =>{
     res.status(200).send(res.body);
 }
 
+/*const HomeModel = require('../models/HomeModels');
+
 exports.homeGet = async (req, res) => {
     const home = await HomeModel.find();
-    /*const api = home.map(obj => obj.titulo);
-    console.log(api)
-    res.send(api);*/
     res.send(home)
 }
 
@@ -33,7 +34,7 @@ exports.homePut = async (req, res) => {
         descricao: req.body.descricao
     })
     res.send(home);
-}
+}*/
 
 exports.homeDelete = async (req, res) => {
     const home = await HomeModel.findByIdAndDelete(req.params.id);
