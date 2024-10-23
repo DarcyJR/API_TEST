@@ -7,7 +7,7 @@ route.get('/', homeController.homeGet);
 
 route.post('/', homeController.homePost);
 
-route.post('/post', homeController.homeWebHook);
+route.post('/webhook', homeController.homeWebHook);
 
 route.put("/:id", homeController.homePut);
 
