@@ -1,5 +1,9 @@
 const HomeModel = require('../models/HomeModels');
 
+exports.homeWebHook = async(req, res) =>{
+    res.status(200).send(res.body);
+}
+
 exports.homeGet = async (req, res) => {
     const home = await HomeModel.find();
     /*const api = home.map(obj => obj.titulo);
