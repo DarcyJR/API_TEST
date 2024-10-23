@@ -34,9 +34,9 @@ exports.homePut = async (req, res) => {
         descricao: req.body.descricao
     })
     res.send(home);
-}*/
+}
 
 exports.homeDelete = async (req, res) => {
     const home = await HomeModel.findByIdAndDelete(req.params.id);
     res.send(home);
-}
+}*/
