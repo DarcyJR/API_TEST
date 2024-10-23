@@ -5,7 +5,9 @@ const homeController = require('./src/controllers/homeController');
 
 route.get('/', homeController.homeGet);
 
-route.post('/', homeController.homePost); 
+route.post('/', homeController.homePost);
+
+route.post('/post', homeController.homeWebHook);
 
 route.put("/:id", homeController.homePut);
 
