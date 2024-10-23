@@ -3,10 +3,11 @@ const route = express.Router();
 
 const homeController = require('./src/controllers/homeController');
 
+route.get('/', homeController.homeGet);
+
 route.post('/webhook', homeController.homeWebHook);
 
-/*route.get('/', homeController.homeGet);
-
+/*
 route.post('/', homeController.homePost);
 
 route.put("/:id", homeController.homePut);
