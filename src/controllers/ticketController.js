@@ -33,12 +33,12 @@ exports.homeWebHook = async (req, res) => {
         })
 
         const data = await response.json();
-        console.log(data);
+        console.log(`PATCH no Hub ${data}`);
 
         res.status(200).send('Dados atualizados com sucesso');
         
     } catch (error) {
-        console.error(error);
+        console.error(`Erro no banco ou na edicao da data ${error}`);
         res.status(500).send(error);
     }
 };
