@@ -10,11 +10,4 @@ route.get('/', homeController.homeGet);
 //ticketController
 route.post('/webhook', ticketController.homeWebHook);
 
-/*
-route.post('/', homeController.homePost);
-
-route.put("/:id", homeController.homePut);
-
-route.delete("/:id", homeController.homeDelete);*/
-
 module.exports = route;
