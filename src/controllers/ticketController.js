@@ -13,7 +13,7 @@ exports.homeWebHook = async (req, res) => {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization':process.env.YOUR_TOKEN
+                'Authorization':`${process.env.YOUR_TOKEN}`
             },
             body: JSON.stringify({
                 "properties": {
