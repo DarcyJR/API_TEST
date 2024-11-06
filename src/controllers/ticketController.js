@@ -9,7 +9,7 @@ exports.homeWebHook = async (req, res) => {
         console.log(dados);
 
         fetch(`https://api.hubapi.com/crm/v3/objects/tickets/${req.body[0].objectId}`, {  // Verifique se 'objectId' está correto
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'  // Coloque 'application/json' entre aspas
             },
