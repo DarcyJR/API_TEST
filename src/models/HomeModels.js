@@ -8,3 +8,13 @@ const HomeSchema = new mongoose.Schema({
 const HomeModel = mongoose.model('home', HomeSchema);
 
 module.exports = HomeModel;*/
+
+//teste
+const mongoose = require('mongoose');
+const TicketSchema = new mongoose.Schema({
+    idTicket: Int
+})
+
+const TicketModel = mongoose.model('ticket', TicketSchema);
+
+module.exports = TicketModel;
