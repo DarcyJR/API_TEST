@@ -2,10 +2,13 @@ const express = require('express');
 const route = express.Router();
 
 const homeController = require('./src/controllers/homeController');
+const ticketController = require('./src/controllers/ticketController');
 
+//homeController
 route.get('/', homeController.homeGet);
 
-route.post('/webhook', homeController.homeWebHook);
+//ticketController
+route.post('/webhook', ticketController.homeWebHook);
 
 /*
 route.post('/', homeController.homePost);
