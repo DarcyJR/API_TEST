@@ -1,4 +1,24 @@
-exports.homeWebHook = async(req, res) =>{
+exports.homeWebHook = async (req, res) =>{
     console.log(req.body);
     res.status(200).send(res.body);
+    await TicketModel.create({
+        
+    })
+}
+
+const TicketModel = require('../models/TicketModels');
+
+exports.homePost = async (req, res) => {
+    await HomeModel.create({
+        titulo: req.body.titulo,
+        descricao: req.body.descricao
+    })
+        .then((dados) => {
+            console.log(dados);
+            res.send(dados);
+        })
+        .catch((e) => {
+            console.log(e);
+            res.send(e);
+        })
 }
