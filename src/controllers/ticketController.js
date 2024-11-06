@@ -3,7 +3,7 @@ const TicketModel = require('../models/TicketModels');
 exports.homeWebHook = async (req, res) =>{
     try {
         const dados = await TicketModel.create({
-            idTicket: req.body.objectId
+            idTicket: req.body
         });
         console.log(dados);
         res.send(dados);
