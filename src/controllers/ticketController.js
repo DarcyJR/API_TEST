@@ -22,8 +22,8 @@ exports.homeWebHook = async (req, res) => {
             })
         })
             .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.log(error));
+            .then(data => console.log('ETA atualizado', data))
+            .catch(error => console.log('ETA erro', error));
 
     } catch (error) {
         console.error(error);
