@@ -1,22 +1,17 @@
 const TicketModel = require('../models/TicketModels');
 
 exports.homeWebHook = async (req, res) =>{
-    
-    console.log(req.body);
-    res.status(200).send(res.body);
-    
-    await TicketModel.create({
-        idTicket: req.body.objectId
-    })
-    .then((dados) =>{
+    try {
+        const dados = await TicketModel.create({
+            idTicket: req.body.objectId
+        });
         console.log(dados);
         res.send(dados);
-    }).catch((error)=>{
-        console.log(error);
-        res.send(error)
-    })
+    } catch (error) {
+        console.error(error);
+        res.status(500).send(error);
+    }
 }
-
 /*
 
 exports.homePost = async (req, res) => {
