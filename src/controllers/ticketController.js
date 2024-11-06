@@ -1,3 +1,5 @@
+const TicketModel = require('../models/TicketModels');
+
 exports.homeWebHook = async (req, res) =>{
     console.log(req.body);
     res.status(200).send(res.body);
@@ -6,7 +8,7 @@ exports.homeWebHook = async (req, res) =>{
     })*/
 }
 
-/*const TicketModel = require('../models/TicketModels');
+/*
 
 exports.homePost = async (req, res) => {
     await HomeModel.create({
