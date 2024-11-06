@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.CONNECTMONGO || process.env.CONNECT_MONGO)
     .then(() => {
-        console.log('Base conectada');
+        console.log('Servidor conectado com banco de dados');
         app.emit('conectado');
     })
     .catch((e) => {
