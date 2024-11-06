@@ -2,7 +2,7 @@ require('dotenv').config();
 const TicketModel = require('../models/TicketModels');
 
 exports.homeWebHook = async (req, res) => {
-    console.log(req.body);
+    console.log(`Cabecalho do POST ${req.body}`);
     try {
 
         const existingTicket = await TicketModel.findOne({
