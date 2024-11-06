@@ -8,6 +8,6 @@ exports.homeGet = async (req, res) => {
     console.error(error);
     res.status(500).send({ message: 'Erro ao buscar dados.' });
   }*/
-    res.send("ola");
+    res.send("ola darcy");
  
 }
