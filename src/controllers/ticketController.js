@@ -9,7 +9,7 @@ exports.homeWebHook = async (req, res) => {
         });
         console.log(dados);
 
-        fetch(`https://api.hubapi.com/crm/v3/objects/tickets/${req.body[0].objectId}`, {
+        const response = await fetch(`https://api.hubapi.com/crm/v3/objects/tickets/${req.body[0].objectId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,10 +21,12 @@ exports.homeWebHook = async (req, res) => {
                 }
             })
         })
-            .then(response => response.json())
-            .then(data => console.log('ETA atualizado', data))
-            .catch(error => console.log('ETA erro', error));
 
+        const data = await response.json();
+        console.log(data);
+
+        res.status(200).send('Dados atualizados com sucesso');
+        
     } catch (error) {
         console.error(error);
         res.status(500).send(error);
