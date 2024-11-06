@@ -4,6 +4,16 @@ const TicketModel = require('../models/TicketModels');
 exports.homeWebHook = async (req, res) => {
     console.log(req.body);
     try {
+
+        const existingTicket = await TicketModel.findOne({
+            idTicket: req.body[0].objectId
+        })
+
+        if(existingTicket){
+            console.log('Ticket já existe');
+            return res.status(400).send('Ticket já existe');
+        }
+        
         const dados = await TicketModel.create({
             idTicket: req.body[0].objectId
         });
