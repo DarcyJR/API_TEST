@@ -4,7 +4,6 @@ const app = express();
 const routes = require('./routes');
 const path = require('path')
 
-
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.CONNECTMONGO || process.env.CONNECT_MONGO)
@@ -23,11 +22,6 @@ app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
 app.use(routes);
-
-/*app.listen(3000, () => {
-        console.log('Servidor iniciado');
-        console.log('http://localhost:3000');
-})*/
 
 app.on('conectado', () => {
     app.listen(3000, () => {

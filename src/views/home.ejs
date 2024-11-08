@@ -10,7 +10,18 @@
 
 <body>
     <div>
-        <h1>Home</h1>
+        <% if (items && items.length > 0) { %>
+            <ul>
+              <% items.forEach(item => { %>
+                <li>
+                  <h2><%= item.titulo %></h2>
+                  <p><%= item.descricao %></p>
+                </li>
+              <% }) %>
+            </ul>
+          <% } else { %>
+            <p>Nenhum item encontrado.</p>
+          <% } %>
     </div>
 </body>
 
