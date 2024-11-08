@@ -18,6 +18,9 @@ mongoose.connect(process.env.CONNECTMONGO || process.env.CONNECT_MONGO)
 app.use(express.json());//Analisar o body como json
 app.use(express.urlencoded({ extends: true }));
 
+app.set('views', path.resolve(__dirname, 'src', 'views'));
+app.set('view engine', 'ejs');
+
 app.use(routes);
 
 /*app.listen(3000, () => {
