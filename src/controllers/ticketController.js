@@ -42,3 +42,21 @@ exports.homeWebHook = async (req, res) => {
         res.status(500).send(error);
     }
 };
+
+exports.tickets = async (req, res)=>{
+    const response = await fetch(`https://api.hubapi.com/crm/v3/objects/tickets?limit=50`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization':`${process.env.YOUR_TOKEN}`
+        }
+    })
+
+    if(response.ok){
+        const data = await response.json();
+        //res.send(data.results[0].properties.subject)
+        res.render('tickets', {data: data.results});
+    }else{
+        
+    }
+}

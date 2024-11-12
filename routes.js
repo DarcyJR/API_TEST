@@ -10,4 +10,6 @@ route.get('/', homeController.homeGet);
 //ticketController
 route.post('/webhook', ticketController.homeWebHook);
 
+route.get('/tickets', ticketController.tickets);
+
 module.exports = route;
