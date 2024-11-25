@@ -1,26 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Find out</title>
-</head>
-
-<body>
+<%- include('includes/header')%>
+<%- include('includes/nav')%>
     <div>
-        <% if(data && data.length> 0){ %>
-            <ol>
-                <% data.forEach(item=>{ %>
-                    <li>
-                        <p>
-                            <%= item.properties.subject %>
-                        </p>
-                    </li>
-                <% }) %>
-            </ol>
-        <%}%>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>Tipo Solicitação</th>
+                    <th>Solicitacao</th>
+                    <th>Data de criação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(data && data.length> 0){ %>
+                    <% data.forEach(item=>{ %>
+                        <tr>
+                            <td>
+                                <%= item.id %>
+                            </td>
+                            <td>
+                                <%= item.properties.subject %>
+                            </td>
+                            <td>
+                                <%= item.properties.tipo_solicitacao_tecnologia_br %>
+                            </td>
+                            <td>
+                                <% if(item.properties.tipo_solicitacao_tecnologia_br==="Customização e Melhoria" ){ %>
+                                    <%= "Customização e Melhoria" %>
+                                        <% } %>
+                            </td>
+                            <td>
+                                <% if(item.properties.createdate){ %>
+                                        <% const date = item.properties.createdate.split('T')[0] %>
+                                        <%= date %>
+                                    <% } %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <%}%>
+            </tbody>
+        </table>
     </div>
 </body>
 
