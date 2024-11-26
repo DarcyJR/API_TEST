@@ -1,46 +1,52 @@
 <%- include('includes/header')%>
-<%- include('includes/nav')%>
-<nav>
-    <ul>
-        <li><a href="cliente/cliente">Cliente</a></li>
-        <li><a href="cliente/proprietario">Proprietário</a></li>
-    </ul>
-</nav>
-<section>
-    <h1>Cliente e Proprietários</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Cliente</th>
-                <th>Proprietário</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% clientes.forEach((cliente) => { %>
-                <tr>
-                    <td>
-                        <%= cliente.cliente %>
-                    </td>
-                    <td>
-                        <form action="/proprietarios" method="post">
-                            <select name="proprietarioId">
-                                <option value="">Selecione um proprietário</option>
-                                <% proprietarios.forEach((proprietario) => { %>
-                                    <option 
-                                        value="<%= proprietario._id %>" 
-                                        <%= cliente.proprietario && String(cliente.proprietario._id) === String(proprietario._id) ? 'selected' : '' %>>
-                                        <%= proprietario.proprietario %>
-                                    </option>
-                                <% }) %>
-                            </select>
-                            <input type="hidden" name="clienteId" value="<%= cliente._id %>">
-                            <button type="submit">Salvar</button>
-                        </form>
-                    </td>
-                </tr>
-            <% }) %>
-        </tbody>
-    </table>
-</section>
-</body>
-</html>
+    <%- include('includes/nav')%>
+        <nav>
+            <ul>
+                <li><a href="cliente/cliente">Cliente</a></li>
+                <li><a href="cliente/proprietario">Proprietário</a></li>
+            </ul>
+        </nav>
+        <section>
+            <div class="container">
+                <h1>Cliente e Proprietários</h1>
+                <table class="styled_table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Proprietário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% clientes.forEach((cliente)=> { %>
+                            <tr>
+                                <td>
+                                    <%= cliente.cliente %>
+                                </td>
+                                <td>
+                                    <form action="/proprietarios" method="post">
+                                        <select name="proprietarioId">
+                                            <option value="">Selecione um proprietário</option>
+                                            <% proprietarios.forEach((proprietario)=> { %>
+                                                <option value="<%= proprietario._id %>" <%=cliente.proprietario &&
+                                                    cliente.proprietario[0] &&
+                                                    String(cliente.proprietario[0]._id)===String(proprietario._id)
+                                                    ? 'selected' : '' %>>
+                                                    <%= proprietario.proprietario %>
+
+
+                                                </option>
+                                                <% }) %>
+                                        </select>
+                                        <input type="hidden" name="clienteId" value="<%= cliente._id %>">
+                                        <button type="submit">Salvar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        </body>
+
+        </html>

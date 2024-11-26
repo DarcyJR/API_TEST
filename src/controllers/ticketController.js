@@ -80,7 +80,7 @@ exports.tickets = async (req, res) => {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `${process.env.YOUR_TOKEN}`
-        }
+        },
     })
 
     if (!response.ok) {//false
@@ -91,3 +91,4 @@ exports.tickets = async (req, res) => {
         res.render('tickets', { data: data.results });
     }
 }
+

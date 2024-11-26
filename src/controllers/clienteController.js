@@ -8,7 +8,8 @@ exports.postCliente = async (req, res) => {
     try {
         const cliente = new ClienteModel(req.body);
         await cliente.save();
-        res.status(201).json(cliente);
+        //res.status(201).json(cliente);
+        res.redirect('/cliente/cliente');
     } catch (error) {
         res.status(400).json({error:error.message});
     }
@@ -22,7 +23,8 @@ exports.postProprietario = async (req, res) => {
     try {
         const proprietario = new ProprietarioModel(req.body);
         await proprietario.save();
-        res.status(201).json(proprietario);
+        //res.status(201).json(proprietario);
+        res.redirect('/cliente/proprietario');
     } catch (error) {
         res.status(400).json({error:error.message});
     }
