@@ -9,6 +9,44 @@
                 <button type="submit">Salvar</button>
             </form>
         </section>
+        <section>
+            <form action="/cliente/proprietario/user" method="post">
+                <table>
+                    <thead>
+                        <th>Id</th>
+                        <th>Usuário</th>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="submit">Salvar</button></td>
+                            <td></td>
+                        </tr>
+                        <%let contador=0%>
+                            <% if(data && data.length> 0){ %>
+                                <% data.forEach(item=>{ %>
+                                    <tr>
+                                        <td>
+                                            <%= item.id %>
+                                                <input type="hidden" name="proprietarioUser[<%=contador%>][id]" value="<%= item.id %>">
+                                        </td>
+                                        <td>
+                                            <%= item.firstName + " " + item.lastName%>
+                                                <input type="hidden" name="proprietarioUser[<%=contador%>][nome]"
+                                                    value="<%= item.firstName + " " + item.lastName%>">
+                                        </td>
+
+                                    </tr>
+                                    <%contador++%>
+                                        <% }) %>
+                                            <%}%>
+                                                
+                    </tbody>
+                    </tbody>
+                </table>
+            </form>
+        </section>
         </body>
 
         </html>

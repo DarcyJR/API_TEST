@@ -1,10 +1,11 @@
 require('dotenv').config();
 const TicketModel = require('../models/TicketModels');
 
-exports.homeWebHook = async (req, res) => {
+exports.homeWebHook = async (req, res) => {http://link/homeWebHook/post
     console.log(`Cabecalho do POST ${req.body}`);
     try {
         const newDate = "";
+        //verificação se o id do ticket existe no banco
         const existingTicket = await TicketModel.findOne({
             idTicket: req.body[0].objectId
         })
@@ -13,7 +14,7 @@ exports.homeWebHook = async (req, res) => {
             console.log('Ticket já existe');
             return res.status(400).send('Ticket já existe');
         }
-
+        //salvando o id do ticket no banco
         const dados = await TicketModel.create({
             idTicket: req.body[0].objectId
         });
