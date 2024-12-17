@@ -4,12 +4,6 @@ exports.getProprietario = async (req, res) => {
    try {
       const clientes = await ClienteModel.find().populate('proprietario');
       const proprietarios = await ProprietarioModel.find();
-      clientes.forEach((cliente) => {
-         /*cliente.proprietario.forEach(prop => {
-            console.log(prop._id)
-         })*/
-        //console.log(cliente.proprietario[0]._id)
-      })
       res.render('proprietarios', { clientes, proprietarios });
    } catch (error) {
       res.status(500).json({ error: error.message });

@@ -9,7 +9,7 @@ const clienteController = require('./src/controllers/clienteController');
 route.get('/', homeController.homeGet);
 
 //ticketController
-route.post('/webhook', ticketController.homeWebHook);
+route.post('/webhook', ticketController.webHook);
 
 route.get('/tickets', ticketController.tickets);
 

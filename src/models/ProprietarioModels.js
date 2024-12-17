@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const ProprietarioSchema = new mongoose.Schema({
+    idhub:{
+        type:String,
+    },
     proprietario: {
         type:String,
         required:true,
@@ -16,7 +19,7 @@ const ClienteSchema = new mongoose.Schema({
     proprietario:[
         { 
             type: mongoose.Schema.Types.ObjectId, 
-            ref: 'proprietario' 
+            ref: 'proprietario'
         }
     ]
 

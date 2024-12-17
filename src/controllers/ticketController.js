@@ -1,7 +1,7 @@
 require('dotenv').config();
 const TicketModel = require('../models/TicketModels');
 
-exports.homeWebHook = async (req, res) => {http://link/homeWebHook/post
+exports.webHook = async (req, res) => {http://link/homeWebHook/post
     console.log(`Cabecalho do POST ${req.body}`);
     try {
         const newDate = "";
