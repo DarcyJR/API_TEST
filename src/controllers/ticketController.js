@@ -31,6 +31,7 @@ exports.webHook = async (req, res) => {http://link/homeWebHook/post
             const data = await getResponse.json();
             const getSolicitacao = data.results.properties.tipo_solicitacao_tecnologia_br
             const getCreateDate = data.results.properties.createdate;
+            console.log(getSolicitacao)
             if (getSolicitacao) {
                 /*const dados = await TicketModel.create({
                     idTicket: req.body[0].objectId,
