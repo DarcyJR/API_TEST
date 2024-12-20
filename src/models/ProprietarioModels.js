@@ -1,14 +1,4 @@
 const mongoose = require('mongoose');
-const ProprietarioSchema = new mongoose.Schema({
-    idhub:{
-        type:String,
-    },
-    proprietario: {
-        type:String,
-        required:true,
-        unique:true
-    }
-});
 
 const ClienteSchema = new mongoose.Schema({
     cliente:{
@@ -24,6 +14,17 @@ const ClienteSchema = new mongoose.Schema({
     ]
 
 })
+
+const ProprietarioSchema = new mongoose.Schema({
+    idhub:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    proprietario: {
+        type:String,
+    }
+});
 
 const ProprietarioModel = mongoose.model('proprietario', ProprietarioSchema);
 const ClienteModel = mongoose.model('cliente', ClienteSchema);

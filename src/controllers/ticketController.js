@@ -2,9 +2,7 @@ require('dotenv').config();
 const TicketModel = require('../models/TicketModels');
 
 exports.webHook = async (req, res) => {http://link/homeWebHook/post
-    console.log(`Cabecalho do POST ${req.body}`);
     try {
-        const newDate = "";
         //verificação se o id do ticket existe no banco
         const existingTicket = await TicketModel.findOne({
             idTicket: req.body[0].objectId
@@ -14,11 +12,9 @@ exports.webHook = async (req, res) => {http://link/homeWebHook/post
             console.log('Ticket já existe');
             return res.status(400).send('Ticket já existe');
         }
+
         //salvando o id do ticket no banco
-        const dados = await TicketModel.create({
-            idTicket: req.body[0].objectId
-        });
-        console.log(dados);
+        
 
         //get do ticket
         const getResponse = await fetch(`https://api.hubapi.com/crm/v3/objects/tickets/${req.body[0].objectId}?properties=tipo_solicitacao_tecnologia_br`, {
@@ -36,6 +32,10 @@ exports.webHook = async (req, res) => {http://link/homeWebHook/post
             const getSolicitacao = data.results.properties.tipo_solicitacao_tecnologia_br
             const getCreateDate = data.results.properties.createdate;
             if (getSolicitacao) {
+                const dados = await TicketModel.create({
+                    idTicket: req.body[0].objectId,
+                    solicitacao: getSolicitacao
+                });
                 switch (getSolicitacao) {
                     case "Customização e Melhoria":
                         break;

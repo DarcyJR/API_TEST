@@ -1,13 +1,14 @@
 <%- include('../includes/header')%>
     <%- include('../includes/nav')%>
+    
         <h1>Formulário Proprietário</h1>
 
         <section>
 
-            <form action="/cliente/proprietario" method="post">
+            <!--<form action="/cliente/proprietario" method="post">
                 <input type="text" name="proprietario" id="proprietario" placeholder="Nome do proprietario">
                 <button type="submit">Salvar</button>
-            </form>
+            </form>-->
         </section>
         <section>
             <form action="/cliente/proprietario/user" method="post">
@@ -16,7 +17,6 @@
                         <th>Id</th>
                         <th>Usuário</th>
                     </thead>
-                    <tbody>
                     <tbody>
                         <tr>
                             <td>
@@ -42,7 +42,6 @@
                                         <% }) %>
                                             <%}%>
                                                 
-                    </tbody>
                     </tbody>
                 </table>
             </form>

@@ -1,11 +1,45 @@
 <%- include('../includes/header')%>
     <%- include('../includes/nav')%>
+    
         <h1>Formulario Cliente</h1>
 
         <section>
-            <form action="/cliente/cliente" method="post">
+            <!--<form action="/cliente/cliente" method="post">
                 <input type="text" name="cliente" id="cliente" placeholder="Nome do cliente">
                 <button type="submit">Salvar</button>
+            </form>-->
+        </section>
+        <section>
+            <form action="/cliente/cliente" method="post">
+                <table>
+                    <thead>
+                        <th>Ordem</th>
+                        <th>Cliente</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="submit">Salvar</button>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <%let contador=0%>
+                            <%if(data && data.length> 0){%>
+                                <%data.forEach(item=>{%>
+                                    <tr>
+                                        <td>
+                                            <%=item.displayOrder%>
+                                        </td>
+                                        <td>
+                                            <%=item.value%>
+                                            <input type="hidden" name="clienteCadastro[<%=contador%>][nome]" value="<%=item.value%>">
+                                        </td>
+                                    </tr>
+                                    <%contador++%>
+                                    <%})%>
+                                <%}%>
+                    </tbody>
+                </table>
             </form>
         </section>
         </body>
