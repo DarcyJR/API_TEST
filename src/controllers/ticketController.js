@@ -32,10 +32,10 @@ exports.webHook = async (req, res) => {http://link/homeWebHook/post
             const getSolicitacao = data.results.properties.tipo_solicitacao_tecnologia_br
             const getCreateDate = data.results.properties.createdate;
             if (getSolicitacao) {
-                const dados = await TicketModel.create({
+                /*const dados = await TicketModel.create({
                     idTicket: req.body[0].objectId,
                     solicitacao: getSolicitacao
-                });
+                });*/
                 switch (getSolicitacao) {
                     case "Customização e Melhoria":
                         break;
